@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SacramentMeetingApp.Models.Meeting>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.meetingID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ward)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.meetingLeader)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.songLeader)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.meetingID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ward)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.meetingLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.songLeader)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.meetingID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.meetingID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.meetingID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
