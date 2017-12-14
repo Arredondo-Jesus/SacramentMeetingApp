@@ -13,16 +13,10 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.meetingID)
+                    @Html.DisplayNameFor(model => model.meetingDate)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ward)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.meetingLeader)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.songLeader)
                 </th>
             <th></th>
         </tr>
@@ -31,16 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.meetingID)
+                @Html.DisplayFor(modelItem => item.meetingDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ward)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.meetingLeader)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.songLeader)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.meetingID">Edit</a> |
@@ -51,3 +39,40 @@
 }
     </tbody>
 </table>
+
+@if (Model.Members != null)
+{
+    <h3>Courses Taught by Selected Instructor</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>Title</th>
+            <th>Department</th>
+        </tr>
+
+        @foreach (var item in Model.members)
+        {
+            string selectedRow = "";
+            if (item.CourseID == (int?)ViewData["CourseID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
+                </td>
+                <td>
+                    @item.CourseID
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Department.Name
+                </td>
+            </tr>
+        }
+
+    </table>
+}

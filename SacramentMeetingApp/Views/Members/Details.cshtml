@@ -1,0 +1,48 @@
+﻿@model SacramentMeetingApp.Models.Member
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Member</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.memberName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.memberName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.memberLastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.memberLastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.assignment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.assignment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.isBishopBrickMember)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.isBishopBrickMember)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.speakerSubject)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.speakerSubject)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.memberID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

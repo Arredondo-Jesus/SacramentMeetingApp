@@ -9,15 +9,13 @@ namespace SacramentMeetingApp.Models
 {
     public class Meeting
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int meetingID { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime meetingID { get; set; }
+        public DateTime meetingDate { get; set; }
         public string ward { get; set; }
-        public string meetingLeader { get; set; }
-        public string songLeader { get; set; }
 
-        public ICollection<Speaker> speakers { get; set; }
+        public ICollection<Member> members { get; set; }
         public ICollection<Song> songs { get; set; }
     }
 }

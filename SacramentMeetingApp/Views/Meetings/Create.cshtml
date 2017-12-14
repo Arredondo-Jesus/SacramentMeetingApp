@@ -13,24 +13,14 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="meetingID" class="control-label"></label>
-                <input asp-for="meetingID" class="form-control" />
-                <span asp-validation-for="meetingID" class="text-danger"></span>
+                <label asp-for="meetingDate" class="control-label"></label>
+                <input asp-for="meetingDate" class="form-control" />
+                <span asp-validation-for="meetingDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ward" class="control-label"></label>
                 <input asp-for="ward" class="form-control" />
                 <span asp-validation-for="ward" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="meetingLeader" class="control-label"></label>
-                <input asp-for="meetingLeader" class="form-control" />
-                <span asp-validation-for="meetingLeader" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="songLeader" class="control-label"></label>
-                <input asp-for="songLeader" class="form-control" />
-                <span asp-validation-for="songLeader" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

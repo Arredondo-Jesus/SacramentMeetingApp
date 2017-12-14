@@ -25,7 +25,7 @@ namespace SacramentMeetingApp.Controllers
         }
 
         // GET: Meetings/Details/5
-        public async Task<IActionResult> Details(DateTime? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -53,7 +53,7 @@ namespace SacramentMeetingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("meetingID,ward,meetingLeader,songLeader")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("meetingID,meetingDate,ward")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace SacramentMeetingApp.Controllers
         }
 
         // GET: Meetings/Edit/5
-        public async Task<IActionResult> Edit(DateTime? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -85,7 +85,7 @@ namespace SacramentMeetingApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(DateTime id, [Bind("meetingID,ward,meetingLeader,songLeader")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("meetingID,meetingDate,ward")] Meeting meeting)
         {
             if (id != meeting.meetingID)
             {
@@ -116,7 +116,7 @@ namespace SacramentMeetingApp.Controllers
         }
 
         // GET: Meetings/Delete/5
-        public async Task<IActionResult> Delete(DateTime? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -136,7 +136,7 @@ namespace SacramentMeetingApp.Controllers
         // POST: Meetings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(DateTime id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var meeting = await _context.Meetings.SingleOrDefaultAsync(m => m.meetingID == id);
             _context.Meetings.Remove(meeting);
@@ -144,7 +144,7 @@ namespace SacramentMeetingApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MeetingExists(DateTime id)
+        private bool MeetingExists(int id)
         {
             return _context.Meetings.Any(e => e.meetingID == id);
         }

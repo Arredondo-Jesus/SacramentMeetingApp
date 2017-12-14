@@ -10,13 +10,13 @@ namespace SacramentMeetingApp.Models
         }
 
         public DbSet<Meeting> Meetings { get; set; }
-        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<Member> Members { get; set; }
         public DbSet<Song> Songs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Meeting>().ToTable("Meeting");
-            modelBuilder.Entity<Speaker>().ToTable("Speaker");
+            modelBuilder.Entity<Member>().ToTable("Member");
             modelBuilder.Entity<Song>().ToTable("Song");
         }
     }

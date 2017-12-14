@@ -20,7 +20,7 @@ namespace SacramentMeetingApp.Data
 
             var meetings = new Meeting[]
             {
-                new Meeting{ meetingLeader="Joseph Smith", meetingID=DateTime.Parse("2005-09-01")}
+                new Meeting{ meetingDate=DateTime.Parse("2005-09-01"), ward="Hacienda Mitras"}
             };
 
             foreach (Meeting m in meetings)
@@ -30,14 +30,14 @@ namespace SacramentMeetingApp.Data
 
             context.SaveChanges();
 
-            var speakers = new Speaker[]
+            var speakers = new Member[]
             {
-                new Speaker{speakerName ="John", speakerLastName="Rogers", speakerSubject="Charity" }
+                new Member{memberName ="John", memberLastName="Rogers", speakerSubject="Charity" }
             };
 
-            foreach (Speaker sp in speakers)
+            foreach (Member sp in speakers)
             {
-                context.Speakers.Add(sp);
+                context.Members.Add(sp);
             }
             context.SaveChanges();
 
