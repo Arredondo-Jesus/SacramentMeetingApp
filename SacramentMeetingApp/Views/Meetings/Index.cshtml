@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SacramentMeetingApp.Models.Meeting>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Meetings";
 }
 
 <h2>Index</h2>
@@ -39,40 +39,3 @@
 }
     </tbody>
 </table>
-
-@if (Model.Members != null)
-{
-    <h3>Courses Taught by Selected Instructor</h3>
-    <table class="table">
-        <tr>
-            <th></th>
-            <th>Number</th>
-            <th>Title</th>
-            <th>Department</th>
-        </tr>
-
-        @foreach (var item in Model.members)
-        {
-            string selectedRow = "";
-            if (item.CourseID == (int?)ViewData["CourseID"])
-            {
-                selectedRow = "success";
-            }
-            <tr class="@selectedRow">
-                <td>
-                    @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
-                </td>
-                <td>
-                    @item.CourseID
-                </td>
-                <td>
-                    @item.Title
-                </td>
-                <td>
-                    @item.Department.Name
-                </td>
-            </tr>
-        }
-
-    </table>
-}
