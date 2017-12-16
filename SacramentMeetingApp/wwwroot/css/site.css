@@ -1,6 +1,8 @@
-﻿body {
+﻿﻿@import url('https://fonts.googleapis.com/css?family=Roboto'); body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Wrapping element */
@@ -8,6 +10,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    min-height: 480px;
 }
 
 /* Carousel */
@@ -32,4 +35,210 @@
     .carousel-caption {
         display: none;
     }
+}
+
+/*CSS customized for the site*/
+/*CSS for banner*/
+
+#home-images {
+    width: 100%;
+    height: 500px;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#image-1 {
+    animation: fade1 15s infinite;
+}
+
+#image-2 {
+    animation: fade2 15s infinite;
+}
+
+#image-3 {
+    animation: fade3 15s infinite;
+}
+
+#image-1, #image-2, #image-3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fade1 {
+    0% {
+        opacity: 1
+    }
+
+    33.333% {
+        opacity: 0
+    }
+
+    66.666% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fade2 {
+    0% {
+        opacity: 0
+    }
+
+    33.333% {
+        opacity: 1
+    }
+
+    66.666% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes fade3 {
+    0% {
+        opacity: 0
+    }
+
+    33.333% {
+        opacity: 0
+    }
+
+    66.666% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+/*Nav bar styles*/
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #b09a22;
+    }
+
+.navbar-inverse {
+    background-color: #eea236;
+    border: none;
+    margin-bottom: 50px;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #b09a22;
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+        .navbar-inverse .navbar-brand:hover {
+            color: #888888;
+        }
+
+
+.footer {
+    position: relative;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    text-align: left;
+    font: normal 16px sans-serif;
+    padding: 35px 50px;
+    margin-top: 10px;
+}
+
+    .footer .footer-left p {
+        color: #8f9296;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Footer links */
+
+    .footer p.footer-links {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+
+        .footer p.footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .footer .footer-right {
+        float: right;
+        margin-top: 6px;
+        max-width: 180px;
+    }
+
+        .footer .footer-right a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: #33383b;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 3px;
+        }
+
+.table > tbody > tr > td {
+    border-top: none;
+}
+
+.table > tbody > tr {
+    border-top: solid 1px #b09a22;
+    border-bottom: solid 1px #b09a22;
+}
+
+    .table > thead, .table > tbody > tr > th, .table > thead > tr > th > a {
+        background-color:#f0ad4e;
+        color: #ffffff;
+    }
+
+    .table > tbody > tr.success > td {
+        background-color: #f2dd6c;
+    }
+
+.btn-default {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    color: #ffffff;
+}
+
+address {
+    width: 300px;
+    color: #000000;
+    margin: 30px 0;
+    padding: 0;
+    line-height: 15px;
+}
+
+    address p span {
+        font-weight: bold;
+    }
+
+.image img {
+    width: 300px;
+    height: 200px;
+    padding: 0;
+    margin: 10px;
+    border: solid 4px #b09a22;
 }

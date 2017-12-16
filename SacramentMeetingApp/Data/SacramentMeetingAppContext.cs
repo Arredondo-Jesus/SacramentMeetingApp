@@ -18,6 +18,18 @@ namespace SacramentMeetingApp.Models
             modelBuilder.Entity<Meeting>().ToTable("Meeting");
             modelBuilder.Entity<Member>().ToTable("Member");
             modelBuilder.Entity<Song>().ToTable("Song");
+
+            modelBuilder.Entity<Meeting>()
+            .HasKey(t => t.meetingID);
+
+             modelBuilder.Entity<Meeting>()
+            .HasMany(t => t.songs)
+            .WithOne(t => t.Meeting);
+
+            modelBuilder.Entity<Meeting>()
+            .HasMany(t => t.members)
+            .WithOne(t => t.Meeting);
+
         }
     }
 }

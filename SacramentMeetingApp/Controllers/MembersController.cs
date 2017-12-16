@@ -21,12 +21,23 @@ namespace SacramentMeetingApp.Controllers
         // GET: Members
         public async Task<IActionResult> Index()
         {
+            var members = _context.Members
+              .Include(c => c.memberName)
+              .Include(c => c.memberLastName)
+              .Include(c => c.assignment)
+              .AsNoTracking();
             return View(await _context.Members.ToListAsync());
         }
 
         // GET: Members/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+                var memberDetails = await _context.Members
+              .Include(c => c.memberName)
+              .Include(c => c.memberLastName)
+              .Include(c => c.assignment)
+              .AsNoTracking()
+              .SingleOrDefaultAsync(m => m.memberID == id);
             if (id == null)
             {
                 return NotFound();
@@ -45,6 +56,7 @@ namespace SacramentMeetingApp.Controllers
         // GET: Members/Create
         public IActionResult Create()
         {
+            //PopulateDepartmentsDropDownList();
             return View();
         }
 
